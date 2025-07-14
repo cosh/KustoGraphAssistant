@@ -1,0 +1,117 @@
+{
+    // General Editor Settings
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.rulers": [
+        120
+    ],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    // File Settings
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true,
+        "**/.vs": true,
+        "**/node_modules": true,
+        "**/.git": true
+    },
+    // .NET and C# Settings
+    "dotnet.defaultSolution": "KustoGraphAssistant.sln",
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+    "dotnet.inlayHints.enableInlayHintsForTypes": true,
+    "dotnet.inlayHints.enableInlayHintsForParameters": true,
+    "dotnet.inlayHints.suppressInlayHintsForParametersThatDifferOnlyBySuffix": true,
+    "dotnet.inlayHints.suppressInlayHintsForParametersThatMatchMethodIntent": true,
+    "dotnet.inlayHints.suppressInlayHintsForParametersThatMatchArgumentName": true,
+    // C# Formatting
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableImportCompletion": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "csharp.format.enable": true,
+    "csharp.semanticHighlighting.enabled": true,
+    // Language-specific formatting
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit"
+        }
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 100,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    // Terminal Settings
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    // Search Settings
+    "search.exclude": {
+        "**/bin": true,
+        "**/obj": true,
+        "**/.vs": true,
+        "**/node_modules": true,
+        "**/.git": true,
+        "**/packages": true
+    },
+    // Git Settings
+    "git.ignoreLimitWarning": true,
+    "git.autofetch": true,
+    // Problem and Error Display
+    "problems.showCurrentInStatus": true,
+    "problems.sortOrder": "severity",
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning",
+        "info"
+    ],
+    "errorLens.followCursor": "allLines",
+    // IntelliSense Settings
+    "editor.suggestSelection": "first",
+    "editor.acceptSuggestionOnCommitCharacter": true,
+    "editor.acceptSuggestionOnEnter": "on",
+    // Code Lens Settings
+    "csharp.referencesCodeLens.enabled": true,
+    "csharp.testsCodeLens.enabled": true,
+    // Spell Checker Settings
+    "cSpell.words": [
+        "Kusto",
+        "MCP",
+        "KQL",
+        "mcpserver",
+        "stdio",
+        "github",
+        "copilot",
+        "csproj",
+        "dotnet",
+        "editorconfig",
+        "omnisharp",
+        "vscode"
+    ],
+    "cSpell.enabledFileTypes": {
+        "csharp": true,
+        "markdown": true,
+        "json": true,
+        "jsonc": true
+    }
+}

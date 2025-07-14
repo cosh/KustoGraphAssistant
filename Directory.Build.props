@@ -1,0 +1,48 @@
+<Project>
+
+  <PropertyGroup>
+    <!-- Common Build Properties -->
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <WarningsNotAsErrors />
+
+    <!-- Code Analysis -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)code-analysis.ruleset</CodeAnalysisRuleSet>
+
+    <!-- Package Properties -->
+    <Authors>KustoGraphAssistant Contributors</Authors>
+    <Company>KustoGraphAssistant</Company>
+    <Product>Kusto Graph Assistant MCP Server</Product>
+    <Copyright>© 2025 KustoGraphAssistant Contributors</Copyright>
+    <PackageProjectUrl>https://github.com/cosh/KustoGraphAssistant</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/cosh/KustoGraphAssistant.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <!-- Build Properties -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+
+    <!-- Version Properties -->
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+
+    <!-- Performance -->
+    <UseSharedCompilation>true</UseSharedCompilation>
+    <OptimizeImplicitlyTriggeredBuild>true</OptimizeImplicitlyTriggeredBuild>
+  </PropertyGroup>
+
+  <!-- Common Package References -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+  </ItemGroup>
+
+</Project>
