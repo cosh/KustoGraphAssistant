@@ -1,5 +1,7 @@
 # Kusto Graph Assistant
 
+[![Build MCP Server](https://github.com/cosh/KustoGraphAssistant/actions/workflows/build.yml/badge.svg)](https://github.com/cosh/KustoGraphAssistant/actions/workflows/build.yml)
+
 A Model Context Protocol (MCP) server that provides comprehensive guidance and best practices for creating and managing Kusto graph models. This tool integrates seamlessly with GitHub Copilot in Visual Studio Code to assist developers in building effective graph-based analytics solutions using Azure Data Explorer (Kusto).
 
 ## What is KustoGraphAssistant?

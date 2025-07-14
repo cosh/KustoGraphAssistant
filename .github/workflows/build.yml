@@ -1,0 +1,65 @@
+name: Build MCP Server
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore KustoGraphAssistant.csproj
+      
+    - name: Build
+      run: dotnet build KustoGraphAssistant.csproj --no-restore --configuration Release
+      
+    - name: Test
+      run: dotnet test KustoGraphAssistant.csproj --no-build --configuration Release --verbosity normal
+      
+    - name: Publish
+      run: dotnet publish KustoGraphAssistant.csproj --no-build --configuration Release --output ./publish
+      
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: mcp-server-build
+        path: ./publish/
+        retention-days: 30
+
+  build-multiplatform:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        runtime: ['win-x64', 'linux-x64', 'osx-x64']
+        
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore KustoGraphAssistant.csproj
+      
+    - name: Publish self-contained
+      run: dotnet publish KustoGraphAssistant.csproj --configuration Release --runtime ${{ matrix.runtime }} --self-contained true --output ./publish-${{ matrix.runtime }}
+      
+    - name: Upload platform-specific artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: mcp-server-${{ matrix.runtime }}
+        path: ./publish-${{ matrix.runtime }}/
+        retention-days: 30
