@@ -165,6 +165,108 @@ Contributions are welcome! Please feel free to submit issues, feature requests, 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 🔄 Data Flow & Integration
+
+```mermaid
+sequenceDiagram
+    participant User as 👤 Developer
+    participant VSCode as 📝 VS Code
+    participant Copilot as 🤖 GitHub Copilot
+    participant MCP as 🔌 MCP Server
+    participant Tools as 🛠️ Graph Tools
+    participant ADX as ☁️ Azure Data Explorer
+
+    User->>VSCode: Opens project
+    VSCode->>Copilot: Activates assistant
+    Copilot->>MCP: Connects via stdio
+    MCP->>Tools: Registers tool methods
+
+    User->>Copilot: Asks about graph models
+    Copilot->>MCP: Calls appropriate tool
+    MCP->>Tools: Executes tool method
+    Tools-->>MCP: Returns guidance/examples
+    MCP-->>Copilot: JSON response
+    Copilot-->>User: Formatted guidance
+
+    User->>Copilot: Requests KQL examples
+    Copilot->>MCP: GetGraphCommandGuidance()
+    MCP->>Tools: Generates KQL templates
+    Tools-->>User: Ready-to-use KQL code
+
+    User->>ADX: Implements suggestions
+    ADX-->>User: Creates graph models
+```
+
+## 🧩 Tool Ecosystem
+
+```mermaid
+mindmap
+  root((🔗 Kusto Graph Assistant))
+    🎯 Best Practices
+      Core Principles
+      Schema Design
+      Performance
+      Common Patterns
+      Identity Graphs
+      Network Topology
+      Process Flows
+    📋 Command Guidance
+      Creation Commands
+      Query Patterns
+      Management
+      Performance Tips
+      Common Mistakes
+      Debugging
+    🔧 Schema Simplification
+      Property Bags
+      ID Consistency
+      Dedicated Properties
+      Evolution Strategy
+      Query Patterns
+    🔍 Graph Match
+      Basic Syntax
+      Pattern Notation
+      Label Checking
+      Variable Length
+      WHERE Clause
+      PROJECT Clause
+      Examples
+      Performance
+```
+
+## 🏗️ Technical Architecture
+
+### Architecture Highlights
+
+- **Model Context Protocol (MCP) server** - Standardized interface for tool integration
+- **.NET 9.0 console application** - Modern, high-performance runtime
+- **Dependency injection** with Microsoft.Extensions.Hosting for clean architecture
+- **Stdio transport** for seamless VS Code integration
+- **Assembly scanning** for automatic tool discovery and registration
+
+### Core Tools
+
+- **GetGraphModelBestPractices** - Comprehensive design guidance covering core principles, schema design, performance optimization, and common patterns for identity graphs, network topology, and process flows
+- **GetGraphCommandGuidance** - KQL command templates for graph model creation, query patterns, management operations, and debugging strategies
+- **GetSchemaSimplificationGuidance** - Schema optimization guidance including property bags, ID consistency, dedicated properties, and evolution strategies
+- **GetGraphMatchGuidance** - Query pattern examples covering basic syntax, pattern notation, label checking, variable length paths, and performance optimization
+
+### Integration Points
+
+- **GitHub Copilot in VS Code** - Natural language interface for accessing graph modeling guidance
+- **Azure Data Explorer (Kusto)** - Target platform for graph model implementation
+- **Graph models and snapshots** - Persistent and transient graph storage mechanisms
+- **KQL (Kusto Query Language)** - Query language for graph operations and analysis
+- **JSON-based tool responses** - Structured data format for tool communication
+
+### Key Features
+
+- **Real-time guidance** for graph modeling decisions and best practices
+- **Performance optimization recommendations** based on query patterns and data volume
+- **Schema evolution strategies** for maintaining and updating graph models over time
+- **Ready-to-use KQL templates** for common graph operations and patterns
+- **Best practice enforcement** to prevent common mistakes and anti-patterns
+
 ## Support
 
 If you encounter any issues or have questions:
